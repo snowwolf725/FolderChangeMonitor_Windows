@@ -1,0 +1,25 @@
+﻿<Window x:Class="FileSystemMonitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileSystemMonitor"
+        mc:Ignorable="d"
+        Title="File System Monitor Ver 0.1 " Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="206*"/>
+            <ColumnDefinition Width="88*"/>
+            <ColumnDefinition Width="223*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txt_path" Height="22" Margin="39,21,30,0" TextWrapping="Wrap" Text="C:\" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_chooseDir" Content="選擇資料夾" Margin="6,21,142,0" VerticalAlignment="Top" Click="btn_chooseDir_Click" RenderTransformOrigin="-1.093,0.9" Grid.Column="2" Height="20"/>
+        <DataGrid x:Name="grid_changeList" Margin="39,64,50,32" AlternationCount="1" RowDetailsVisibilityMode="Visible" MinRowHeight="20" ItemsSource="{Binding Mode=OneWay}" Grid.ColumnSpan="3">
+            <DataGrid.DataContext>
+                <local:Item/>
+            </DataGrid.DataContext>
+        </DataGrid>
+        <Button x:Name="btn_monitor" Content="開始監控" Margin="0,20,50,0" VerticalAlignment="Top" Click="btn_monitor_Click" Grid.Column="2" HorizontalAlignment="Right" Width="75" Height="20"/>
+
+    </Grid>
+</Window>
